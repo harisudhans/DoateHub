@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>DonateHub</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header>
+    <h1>DonateHub</h1>
+    <p>Old Clothes and Book Donation Drive Tracker</p>
+</header>
+
+
+<nav>
+    <button onclick="showSection('home')">Home</button>
+    <button onclick="showSection('drive')">Create Drive</button>
+    <button onclick="showSection('donor')">Add Donor</button>
+    <button onclick="showSection('item')">Donate Item</button>
+    <button onclick="showSection('recipient')">Recipient</button>
+    <button onclick="showSection('items')">View Items</button>
+</nav>
+
+
+<main>
+
+    <!-- HOME -->
+
+    <section id="home" class="section active">
+
+        <h2>Welcome to DonateHub</h2>
+
+        <p class="intro">
+            DonateHub helps manage old clothes and book
+            donation drives and their distribution.
+        </p>
+
+        <div class="cards">
+
+            <div class="card blue-card">
+                <h3>Donation Drives</h3>
+                <p id="driveCount">0</p>
+            </div>
+
+            <div class="card pink-card">
+                <h3>Donors</h3>
+                <p id="donorCount">0</p>
+            </div>
+
+            <div class="card blue-card">
+                <h3>Recipients</h3>
+                <p id="recipientCount">0</p>
+            </div>
+
+            <div class="card pink-card">
+                <h3>Donated Items</h3>
+                <p id="itemCount">0</p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- CREATE DRIVE -->
+
+    <section id="drive" class="section">
+
+        <h2>Create Donation Drive</h2>
+
+        <form id="driveForm">
+
+            <label>Drive Name</label>
+            <input type="text" id="driveName" required>
+
+            <label>Start Date</label>
+            <input type="date" id="startDate" required>
+
+            <label>End Date</label>
+            <input type="date" id="endDate" required>
+
+            <button type="submit">Create Drive</button>
+
+        </form>
+
+        <p id="driveMessage"></p>
+
+    </section>
+
+
+    <!-- DONOR -->
+
+    <section id="donor" class="section">
+
+        <h2>Add Donor</h2>
+
+        <form id="donorForm">
+
+            <label>Name</label>
+            <input type="text" id="donorName" required>
+
+            <label>Email</label>
+            <input type="email" id="donorEmail">
+
+            <label>Phone</label>
+            <input type="text" id="donorPhone">
+
+            <button type="submit">Add Donor</button>
+
+        </form>
+
+        <p id="donorMessage"></p>
+
+    </section>
+
+
+    <!-- DONATE ITEM -->
+
+    <section id="item" class="section">
+
+        <h2>Donate Item</h2>
+
+        <form id="itemForm">
+
+            <label>Category</label>
+
+            <select id="category" required>
+                <option value="">Select Category</option>
+                <option value="BOOKS">Books</option>
+                <option value="CLOTHES">Clothes</option>
+            </select>
+
+
+            <label>Condition</label>
+
+            <select id="condition" required>
+                <option value="">Select Condition</option>
+                <option value="NEW">New</option>
+                <option value="GOOD">Good</option>
+                <option value="WORN">Worn</option>
+            </select>
+
+
+            <label>Quantity</label>
+
+            <input
+                    type="number"
+                    id="quantity"
+                    min="1"
+                    required
+            >
+
+
+            <label>Drive ID</label>
+
+            <input
+                    type="number"
+                    id="driveId"
+                    required
+            >
+
+
+            <label>Donor ID</label>
+
+            <input
+                    type="number"
+                    id="donorId"
+                    required
+            >
+
+
+            <button type="submit">
+                Add Donation
+            </button>
+
+        </form>
+
+        <p id="itemMessage"></p>
+
+    </section>
+
+
+    <!-- RECIPIENT -->
+
+    <section id="recipient" class="section">
+
+        <h2>Add Recipient Organization</h2>
+
+        <form id="recipientForm">
+
+            <label>Organization Name</label>
+
+            <input
+                    type="text"
+                    id="organizationName"
+                    required
+            >
+
+
+            <label>Contact Person</label>
+
+            <input
+                    type="text"
+                    id="contactPerson"
+            >
+
+
+            <label>Phone</label>
+
+            <input
+                    type="text"
+                    id="recipientPhone"
+            >
+
+
+            <label>Address</label>
+
+            <textarea
+                    id="address"
+                    rows="3"
+            ></textarea>
+
+
+            <button type="submit">
+                Add Recipient
+            </button>
+
+        </form>
+
+        <p id="recipientMessage"></p>
+
+    </section>
+
+
+    <!-- VIEW ITEMS -->
+
+    <section id="items" class="section">
+
+        <h2>Donated Items</h2>
+
+        <button onclick="loadItems()">
+            Refresh Items
+        </button>
+
+        <div id="itemsList"></div>
+
+    </section>
+
+</main>
+
+
+<footer>
+    <p>© 2026 DonateHub | Donate • Share • Care</p>
+</footer>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>
